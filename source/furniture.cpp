@@ -3,6 +3,7 @@
 
 #define rep(a, b)   for(int a = 0; a < (b); ++a)
 #define all(a)      (a).begin(),(a).end()
+#define allStar(a)      (a)->begin(),(a)->end()
 #define endl        '\n'
 
 using namespace std;
@@ -27,12 +28,15 @@ int main() {
             cout << false << endl;
             continue;
         }
+        auto counts = new vector<int>();
+        counts->resize(26);
 
-        std::sort(all(a));
-        std::sort(all(b));
+        for(uint j=0; j < a.length(); j+=+1) {
+            counts->at(a[j]-'a')++;
+            counts->at(b[j]-'a')--;
+        }
 
-
-        cout << (a == b) << endl;
+        cout << (count(allStar(counts), 0) == 26) << endl;
     }
 
     return 0;

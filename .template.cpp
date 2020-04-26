@@ -3,6 +3,7 @@
 
 #define rep(a, b)   for(int a = 0; a < (b); ++a)
 #define all(a)      (a).begin(),(a).end()
+#define allStar(a)      (a)->begin(),(a)->end()
 #define endl        '\n'
 
 using namespace std;
