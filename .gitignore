@@ -3,6 +3,8 @@
 
 # own code
 CPcode/
+# Merlins stuff
+tasks/
 
 # clion builds
 cmake-build-*
