@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 
-#define rep(a, b)   for(int a = 0; a < (b); ++a)
+#define rep(var, bound)   for(int var = 0; var < (bound); ++var)
 #define all(a)      (a).begin(),(a).end()
 #define allStar(a)      (a)->begin(),(a)->end()
 #define endl        '\n'
