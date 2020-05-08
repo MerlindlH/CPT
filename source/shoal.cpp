@@ -10,6 +10,19 @@ using namespace std;
 using Graph = vector<vector<int>>;
 using ll = long long;
 
+int readNumber() {
+    int result=0;
+    char c = (char) getchar();
+    while(!(c >= '0' && c <= '9')) {
+        c = (char) getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        result = 10 * result + (c-'0');
+        c = (char) getchar();
+    }
+    return result;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -21,7 +34,8 @@ int main() {
     // moat1, moat2
 
     int puddles,moats,start,end;
-    cin >> puddles >> moats;
+    puddles = readNumber();
+    moats = readNumber();
 
     if(moats < puddles-1) {
         cout << "NO";
@@ -31,7 +45,8 @@ int main() {
     adjList->resize(puddles);
 
     rep(i, moats) {
-        cin >> start >> end;
+        start = readNumber();
+        end = readNumber();
         adjList->at(start).push_back(end);
         adjList->at(end).push_back(start);
     }

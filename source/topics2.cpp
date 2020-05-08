@@ -10,6 +10,19 @@ using namespace std;
 using Graph = vector<vector<int>>;
 using ll = long long;
 
+int readNumber() {
+    int result=0;
+    char c = (char) getchar();
+    while(!(c >= '0' && c <= '9')) {
+        c = (char) getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        result = 10 * result + (c-'0');
+        c = (char) getchar();
+    }
+    return result;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -29,8 +42,8 @@ int main() {
     //  decrement each topic
 
     uint n,m,dependent,dependency;
-    cin >> n;
-    cin >> m;
+    n = readNumber();
+    m = readNumber();
     auto dependents = new vector<unordered_set<uint>>();
     auto numberOfDependencies = new vector<uint>();
     numberOfDependencies->resize(n + 1); // 0 is ignored
@@ -39,8 +52,8 @@ int main() {
     auto stack = new vector<uint>();
 
     for(int i = 0; i < m; i++) {
-        cin >> dependency;
-        cin >> dependent;
+        dependency = readNumber();
+        dependent = readNumber();
 
         dependents->at(dependency).insert(dependent);
         numberOfDependencies->at(dependent)++;

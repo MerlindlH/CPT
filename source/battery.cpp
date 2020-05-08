@@ -12,6 +12,19 @@ using ll = long long;
 using Street = pair<int,int>; // end, Distance
 using Streets = vector<Street>;
 
+int readNumber() {
+    int result=0;
+    char c = (char) getchar();
+    while(!(c >= '0' && c <= '9')) {
+        c = (char) getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        result = 10 * result + (c-'0');
+        c = (char) getchar();
+    }
+    return result;
+}
+
 bool smallerThanNeeded(int nrReachedCities, int nrCities) {
     return nrReachedCities < nrCities && nrReachedCities < (3*nrCities + 3)/4;
 }
@@ -23,12 +36,15 @@ int main() {
 
     // input
     int testCases;
-    cin >> testCases;
+    //cin >> testCases;
+    testCases = readNumber();
 
     rep(testCase,testCases) {
         //input each testCase
         int nrCities, nrStreets, maxDist=INT32_MAX, nrReachedCities=0;
-        cin >> nrCities >> nrStreets;
+        //cin >> nrCities >> nrStreets;
+        nrCities = readNumber();
+        nrStreets = readNumber();
 
         auto streets = vector<Streets>();// for each city: streets with: end, Distance
         streets.resize(nrCities);
@@ -36,7 +52,11 @@ int main() {
 
         rep(streeti, nrStreets) {
             int start,end,distance;
-            cin >> start >> end >> distance;
+            //cin >> start >> end >> distance;
+            start = readNumber();
+            end = readNumber();
+            distance = readNumber();
+
             streets[start].emplace_back(make_pair(end, distance));
             streets[end].emplace_back(make_pair(start, distance));
             if(start == 0) {

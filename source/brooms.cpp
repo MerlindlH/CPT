@@ -11,6 +11,19 @@ using namespace std;
 using Graph = vector<vector<int>>;
 using ll = long long;
 
+int readNumber() {
+    int result=0;
+    char c = (char) getchar();
+    while(!(c >= '0' && c <= '9')) {
+        c = (char) getchar();
+    }
+    while (c >= '0' && c <= '9') {
+        result = 10 * result + (c-'0');
+        c = (char) getchar();
+    }
+    return result;
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -19,7 +32,7 @@ int main() {
 
     //content
     int nrBrooms, ringpos, broomlength;
-    cin >> nrBrooms;
+    nrBrooms = readNumber();
     if(nrBrooms <= 2) {
         cout << nrBrooms;
         return 0;
@@ -27,7 +40,9 @@ int main() {
     auto brooms = vector<pair<int, int>>();
     brooms.resize(nrBrooms);
     rep(i, nrBrooms){
-        cin >> broomlength >> ringpos;
+        broomlength = readNumber();
+
+        ringpos = readNumber();
         brooms[i] = make_pair(ringpos, broomlength);
     }
 
